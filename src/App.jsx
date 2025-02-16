@@ -20,7 +20,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/v1/job-applications")
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/job-applications`)
       .then((response) => response.json())
       .then((data) => setJobs(data))
       .catch((error) => console.error("Error fetching jobs:", error));
@@ -32,7 +32,7 @@ function App() {
 
   const handleDelete = async (id) => {
     const response = await fetch(
-      `http://localhost:8080/api/v1/job-applications/${id}`,
+      `${import.meta.env.VITE_API_BASE_URL}/job-applications/${id}`,
       { method: "DELETE" }
     );
 
@@ -63,7 +63,7 @@ function App() {
     e.preventDefault();
 
     const response = await fetch(
-      `http://localhost:8080/api/v1/job-applications/${editingJob}`,
+      `${import.meta.env.VITE_API_BASE_URL}/job-applications/${editingJob}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -88,7 +88,7 @@ function App() {
     e.preventDefault();
 
     const response = await fetch(
-      "http://localhost:8080/api/v1/job-applications",
+      `${import.meta.env.VITE_API_BASE_URL}/job-applications`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

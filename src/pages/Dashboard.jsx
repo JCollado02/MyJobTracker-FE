@@ -146,6 +146,7 @@ const Dashboard = () => {
                     <th className="border border-gray-300 p-2">Company</th>
                     <th className="border border-gray-300 p-2">Position</th>
                     <th className="border border-gray-300 p-2">Status</th>
+                    <th className="border border-gray-300 p-2">Notes</th>
                     <th className="border border-gray-300 p-2">Actions</th>
                   </tr>
                 </thead>

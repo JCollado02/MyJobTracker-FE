@@ -144,6 +144,7 @@ const Dashboard = () => {
                 <thead className="bg-gray-100">
                   <tr>
                     <th className="border border-gray-300 p-2">Company</th>
+                    <th className="border border-gray-300 p-2">Date Applied</th>
                     <th className="border border-gray-300 p-2">Position</th>
                     <th className="border border-gray-300 p-2">Status</th>
                     <th className="border border-gray-300 p-2">Notes</th>

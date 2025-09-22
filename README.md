@@ -1,13 +1,13 @@
-# 📌 MyJobTracker Frontend
+#  MyJobTracker Frontend
 
 A **React** frontend built with **Vite** and **TailwindCSS** for tracking job applications. This app interacts with a **Spring Boot backend** to manage job applications.
 
 ---
 
 ## Live Demo & Test Credentials  
-🌐 **Live Demo:** [Try it here!](https://my-job-tracker-fe.vercel.app/)  
+ **Live Demo:** [Try it here!](https://my-job-tracker-fe.vercel.app/)  
 
-🔑 **Test Login Credentials:**  
+ **Test Login Credentials:**  
 - **Email:** `test@example.com`  
 - **Password:** `password`
 
@@ -37,18 +37,18 @@ Feel free to **log in and test the app!** Try to break it even, this entire proj
 ## Setup & Installation
 You can **either** use the **hosted backend** or **set up your own**.
 
-### **1️⃣ Clone the Repo**
+### **1 Clone the Repo**
 ```sh
 git clone https://github.com/JCollado02/MyJobTracker-FE.git
 cd MyJobTracker-FE
 ```
 
-### **2️⃣ Install Dependencies**
+### **2 Install Dependencies**
 ```sh
 npm install
 ```
 
-### **3️⃣ Create a `.env` File**  
+### **3 Create a `.env` File**  
 Create a `.env` file in the project root and define your API configuration:
 
 ```sh
@@ -58,7 +58,7 @@ VITE_API_KEY=your_custom_api_key
 
 > If self-hosting, replace `VITE_API_URL` with your own backend URL.
 
-### **4️⃣ Start the Development Server**
+### **4 Start the Development Server**
 ```sh
 npm run dev
 ```

@@ -7,7 +7,7 @@ const Dashboard = () => {
   const { logout } = useAuth();
   const [jobs, setJobs] = useState([]);
   const [editingJob, setEditingJob] = useState(null);
-  const [loading, setLoading] = useState(true); // loading text so not empty on load
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     companyName: "",
     position: "",
@@ -19,11 +19,12 @@ const Dashboard = () => {
   // FETCHES JOBS ON LOAD
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/api/v1/job-applications`, {
+      headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },
       withCredentials: true
     })
     .then((res) => setJobs(res.data))
-    .catch((error) => console.error(" Error fetching jobs:", error)) // ERROR CASE WE CANT LOAD
-    .finally(() => setLoading(false)); // removes the loading
+    .catch((error) => console.error(" Error fetching jobs:", error))
+    .finally(() => setLoading(false));
   }, []);
 
   // Add new job!
@@ -35,6 +36,7 @@ const Dashboard = () => {
         `${import.meta.env.VITE_API_URL}/api/v1/job-applications`,
         formData,
         {
+          headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },
           withCredentials: true
         }
       );
@@ -42,7 +44,7 @@ const Dashboard = () => {
       setJobs([...jobs, res.data]);
       setFormData({ companyName: "", position: "", appliedDate: "", status: "Pending", notes: "" });
     } catch (error) {
-      console.error(" Failed to submit job application:", error);  // error log stuff
+      console.error(" Failed to submit job application:", error);
     }
   };
 
@@ -67,6 +69,7 @@ const Dashboard = () => {
         `${import.meta.env.VITE_API_URL}/api/v1/job-applications/${editingJob}`,
         formData,
         {
+          headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },
           withCredentials: true
         }
       );
@@ -75,7 +78,7 @@ const Dashboard = () => {
       setEditingJob(null);
       setFormData({ companyName: "", position: "", appliedDate: "", status: "Pending", notes: "" });
     } catch (error) {
-      console.error(" Failed to update job application:", error); // error crap
+      console.error(" Failed to update job application:", error);
     }
   };
 
@@ -84,6 +87,7 @@ const Dashboard = () => {
     if (!window.confirm("Are you sure you want to delete this job application?")) return;
     try {
       await axios.delete(`${import.meta.env.VITE_API_URL}/api/v1/job-applications/${id}`, {
+        headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },
         withCredentials: true
       });
       setJobs(jobs.filter((job) => job.id !== id));

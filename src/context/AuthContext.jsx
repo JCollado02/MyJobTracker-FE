@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await fetch(`${import.meta.env.VITE_API_URL}/logout`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/v1/logout`, {
         method: "POST",
         credentials: "include", // MAKE SURE COOKIES PRESENT
       });
@@ -37,7 +37,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
   
-
   return (
     <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
       {children}

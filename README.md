@@ -5,7 +5,7 @@ A **React** frontend built with **Vite** and **TailwindCSS** for tracking job ap
 ---
 
 ## Live Demo & Test Credentials  
- **Live Demo:** [Try it here!](https://my-job-tracker-fe.vercel.app/)  
+ **Live Demo:** [Try it here!](https://jc-jobtracker.netlify.app)  
 
  **Test Login Credentials:**  
 - **Email:** `test@example.com`  
@@ -15,7 +15,7 @@ Feel free to **log in and test the app!** Try to break it even, this entire proj
 
 ---
 
-## 📸 Screenshots  
+## Screenshots  
 ### **Login Screen**  
 ![Login Screen](/screenshots/login.PNG?raw=true "Login Screen")
 
@@ -28,54 +28,25 @@ Feel free to **log in and test the app!** Try to break it even, this entire proj
 - View, add, edit, and delete job applications.
 - Fetches job applications from a **Spring Boot backend**.
 - Responsive **TailwindCSS** UI.
-- Authentication via **JWT Cookies**.
-- Uses an **API Key for security**.
-- Deployed on **Vercel (Frontend) + Render (Backend)**.
+- Deployed on **Netlify (Frontend) + Render (Backend)**.
 
 ---
 
-## Setup & Installation
-You can **either** use the **hosted backend** or **set up your own**.
-
-### **1 Clone the Repo**
-```sh
-git clone https://github.com/JCollado02/MyJobTracker-FE.git
-cd MyJobTracker-FE
-```
-
-### **2 Install Dependencies**
-```sh
+## Running locally
+```bash
 npm install
-```
-
-### **3 Create a `.env` File**  
-Create a `.env` file in the project root and define your API configuration:
-
-```sh
-VITE_API_URL=https://my-job-tracker-be.onrender.com  # Or your own backend URL
-VITE_API_KEY=your_custom_api_key
-```
-
-> If self-hosting, replace `VITE_API_URL` with your own backend URL.
-
-### **4 Start the Development Server**
-```sh
 npm run dev
 ```
-The app will be available at **`http://localhost:5173`**.
 
----
-
-## Backend Setup
-This frontend requires a **Spring Boot backend**. You can use the **hosted backend**, or set up your own:
-
-```sh
-git clone https://github.com/JCollado02/MyJobTracker-BE.git
-cd MyJobTracker-BE
-./mvnw spring-boot:run
+You'll need a `.env` file with:
+```
+VITE_API_URL=your-backend-url
+VITE_API_KEY=your-api-key
 ```
 
-Ensure your backend runs at **`http://localhost:8080`** or update `.env` accordingly.
+## Notes
+
+Backend is in a private repo. This is just the frontend code.
 
 ---
 
@@ -94,16 +65,6 @@ The app interacts with the following API endpoints:
 
 > **Note:** API requests require an `X-API-KEY` for security.  
 > If you're hosting your own version, generate a secure API key and set it in both the **backend** and **frontend** `.env` files.
-
----
-
-## Deployment Notes  
-### **Hosting on Vercel**
-This frontend is deployed on **[Vercel](https://vercel.com/)**.  
-Feel free to use it as well or another service of your choice.
-
-### **Backend Connection**
-If hosting your own backend, update the **API URL** in `.env`.
 
 ---
 

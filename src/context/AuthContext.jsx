@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(false);
       navigate("/");
     } catch (error) {
-      console.error("❌ Logout failed:", error);
+      console.error(" Logout failed:", error);
     }
   };
   

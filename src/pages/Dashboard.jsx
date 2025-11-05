@@ -23,7 +23,7 @@ const Dashboard = () => {
       withCredentials: true
     })
     .then((res) => setJobs(res.data))
-    .catch((error) => console.error("❌ Error fetching jobs:", error)) // ERROR CASE WE CANT LOAD
+    .catch((error) => console.error(" Error fetching jobs:", error)) // ERROR CASE WE CANT LOAD
     .finally(() => setLoading(false)); // removes the loading
   }, []);
 
@@ -44,7 +44,7 @@ const Dashboard = () => {
       setJobs([...jobs, res.data]);
       setFormData({ companyName: "", position: "", appliedDate: "", status: "Pending", notes: "" });
     } catch (error) {
-      console.error("❌ Failed to submit job application:", error);  // error log stuff
+      console.error(" Failed to submit job application:", error);  // error log stuff
     }
   };
 

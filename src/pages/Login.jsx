@@ -12,8 +12,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   // redirect if already logged in (token still exists, finally works lol)
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/auth-check`, { withCredentials: true }) 
+   useEffect(() => {
+    axios.get(`${import.meta.env.VITE_API_URL}/api/v1/auth-check`, { withCredentials: true }) 
       .then(() => {
         login();
         navigate("/dashboard", { replace: true });
@@ -26,8 +26,7 @@ const Login = () => {
     setError(null); // clear old errors
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/login`, { email, password }, { withCredentials: true });
-
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/login`, { email, password }, { withCredentials: true });
       login(); // Update auth state so we dont gotta login again
       navigate("/dashboard", { replace: true });
     } catch (err) {

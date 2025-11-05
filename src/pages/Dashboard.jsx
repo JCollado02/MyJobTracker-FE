@@ -18,8 +18,7 @@ const Dashboard = () => {
 
   // FETCHES JOBS ON LOAD
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/job-applications`, {
-      headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },  // USE API KEY TO ACCESS OUR DB THAT WE MADE
+    axios.get(`${import.meta.env.VITE_API_URL}/api/v1/job-applications`, {
       withCredentials: true
     })
     .then((res) => setJobs(res.data))
@@ -33,10 +32,9 @@ const Dashboard = () => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/job-applications`,
+        `${import.meta.env.VITE_API_URL}/api/v1/job-applications`,
         formData,
         {
-          headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },
           withCredentials: true
         }
       );
@@ -66,10 +64,9 @@ const Dashboard = () => {
 
     try {
       const res = await axios.put(
-        `${import.meta.env.VITE_API_URL}/job-applications/${editingJob}`,
+        `${import.meta.env.VITE_API_URL}/api/v1/job-applications/${editingJob}`,
         formData,
         {
-          headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },
           withCredentials: true
         }
       );
@@ -78,7 +75,7 @@ const Dashboard = () => {
       setEditingJob(null);
       setFormData({ companyName: "", position: "", appliedDate: "", status: "Pending", notes: "" });
     } catch (error) {
-      console.error("❌ Failed to update job application:", error); // error crap
+      console.error(" Failed to update job application:", error); // error crap
     }
   };
 
@@ -86,13 +83,12 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this job application?")) return;
     try {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/job-applications/${id}`, {
-        headers: { "X-API-KEY": import.meta.env.VITE_API_KEY },
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/v1/job-applications/${id}`, {
         withCredentials: true
       });
       setJobs(jobs.filter((job) => job.id !== id));
     } catch (error) {
-      console.error("❌ Failed to delete job application:", error);
+      console.error(" Failed to delete job application:", error);
     }
   };
 
